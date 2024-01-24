@@ -1,29 +1,67 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
+import Rightarrow from '../assets/icons/RightArrow.svg'
 import Carousel from './screen/Carousel'
 
-export default function SignUp() {
+export default function SignUp({navigation}) {
   return (
     <SafeAreaView style={{flex:1,}}>
-          {/* <Text>SignUp</Text> */}
       <Carousel />
-      <View>
-        <View>
+      <View style={styles.bottomContainer}>
+        <View style={styles.leftContainer}>
           <View style={styles.topsContainer}>
-            <Text>Tops</Text>
-            <View></View>
+            <Text style={styles.textFont}>Tops</Text>
+            <View style={styles.orangeContainer}></View>
           </View>
-          <Text>Tshirts</Text>
-          <Text>Hoddies</Text>
-          <Text>126 + categories</Text>
+          <Text style={styles.textFont}>Tshirts</Text>
+          <Text style={styles.textFont}>Hoddies</Text>
+          <Text style={[styles.textFont,{textDecorationLine: 'underline',}]}>126 + categories</Text>
         </View>
-        <TouchableOpacity>
-          <Text>Sign Up</Text>
-          <Image source={require('../assets/Assets/RightArrow.svg')} />
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Main')}>
+            <Text style={{color:'#fff',marginRight:20}}>Sign Up</Text>
+            <Rightarrow style={{transform: [{scaleX: -1}]}} />
+          </TouchableOpacity>
+        </View>
+        
       </View>
     </SafeAreaView>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  bottomContainer: {
+    paddingHorizontal: 30,
+    paddingTop: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end'
+  },
+  leftContainer: {},
+  topsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  orangeContainer: {
+    width: 20,
+    height: 1,
+    backgroundColor: '#FB975D',
+    marginLeft: 10,
+    marginBottom: 8,
+  },
+  textFont: {
+    fontSize: 14,
+    color: '#A6A6A6',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  button: {
+    paddingHorizontal: 40,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#000',
+    borderBottomRightRadius :8,
+    borderTopRightRadius :8,
+  },
+})

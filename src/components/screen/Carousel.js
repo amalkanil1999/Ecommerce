@@ -14,22 +14,22 @@ export default function Carousel() {
   const flatlistRef = useRef();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     if (activeIndex === CarouselData.length - 1) {
-  //       flatlistRef.current.scrollToIndex({
-  //         index: 0,
-  //         animation: true,
-  //       });
-  //     } else {
-  //       flatlistRef.current.scrollToIndex({
-  //         index: activeIndex + 1,
-  //         animation: true,
-  //       });
-  //     }
-  //   }, 2000);
-  //   return () => clearInterval(interval)
-  // })
+  useEffect(() => {
+    let interval = setInterval(() => {
+      if (activeIndex === CarouselData.length - 1) {
+        flatlistRef.current.scrollToIndex({
+          index: 0,
+          animation: true,
+        });
+      } else {
+        flatlistRef.current.scrollToIndex({
+          index: activeIndex + 1,
+          animation: true,
+        });
+      }
+    }, 2000);
+    return () => clearInterval(interval)
+  })
   const getItemLayout = (data, index) => ({
     length: screenWidth,
     offset: screenWidth * index,
@@ -89,7 +89,7 @@ export default function Carousel() {
   };
 
   return (
-    <View>
+    <View >
       <FlatList
         data={CarouselData}
         ref={flatlistRef}
@@ -108,14 +108,14 @@ export default function Carousel() {
 
 const styles = StyleSheet.create({
   mainContainer: {
+    width: screenWidth,
     flex: 1,
     position: 'relative',
     paddingVertical: 30,
+    paddingLeft: 8,
   },
   imageContainer: {
-    width: screenWidth,
     height: 500,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   topText: {
