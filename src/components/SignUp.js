@@ -19,7 +19,7 @@ export default function SignUp({navigation}) {
         </View>
         <View>
           <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Main')}>
-            <Text style={{color:'#fff',marginRight:20}}>Sign Up</Text>
+            <Text style={{color:'#fff',marginRight:20, fontFamily: 'Gorditas-Bold',}}>Sign Up</Text>
             <Rightarrow style={{transform: [{scaleX: -1}]}} />
           </TouchableOpacity>
         </View>
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#A6A6A6',
     marginBottom: 8,
-    fontWeight: '500',
+    fontFamily: 'Gorditas-Regular',
+
   },
   button: {
     paddingHorizontal: 40,

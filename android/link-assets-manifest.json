@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Gorditas-Bold.ttf",
+      "sha1": "b99424a885f19925fc61ca37e03b2de357d776f9"
+    },
+    {
+      "path": "src/assets/fonts/Gorditas-Regular.ttf",
+      "sha1": "5ff4542b7c5cfc21895518c03019583675d38e28"
+    }
+  ]
+}

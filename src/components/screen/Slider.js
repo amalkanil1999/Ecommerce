@@ -13,7 +13,7 @@ import Like from '../../assets/icons/like.svg';
 
 const {width, height} = Dimensions.get('screen');
 
-export default function Slider() {
+export default function Slider({navigation}) {
   const [selected, setSelected] = useState(1);
   const [data, setData] = useState([]);
   // const [filteredData, setFilteredData] = useState([]);
@@ -112,7 +112,7 @@ export default function Slider() {
   };
   const renderItems = ({item, index}) => {
     return (
-      <TouchableOpacity style={styles.touchableContainer}>
+      <TouchableOpacity style={styles.touchableContainer} onPress={()=>navigation.navigate('Page',{item})}>
         <Animated.View style={styles.imageContainer}>
           <Image source={item.image} style={styles.sliderImage} />
           <Like width={25} height={25} style={styles.like} />
@@ -120,7 +120,7 @@ export default function Slider() {
         <Text style={styles.mainText}>
           {item.style} {item.name}
         </Text>
-        <Text style={[styles.mainText, {fontWeight: '900'}]}>
+        <Text style={styles.mainText}>
           ${item.price}
         </Text>
       </TouchableOpacity>
@@ -190,11 +190,11 @@ export default function Slider() {
         showsHorizontalScrollIndicator={false}
       />
       <View style={styles.popularContainer}>
-            <Text style={{fontSize: 18, fontWeight: '700', color: '#000'}}>
+            <Text style={{fontSize: 18, fontFamily: 'Gorditas-Bold',color: '#000'}}>
               Most Popular
             </Text>
             <TouchableOpacity>
-              <Text style={{fontSize: 14, fontWeight: '700', color: '#000'}}>
+              <Text style={{fontSize: 14, fontFamily: 'Gorditas-Bold',color: '#000'}}>
                 See all
               </Text>
             </TouchableOpacity>
@@ -208,8 +208,9 @@ export default function Slider() {
           snapToAlignment="center"
           numColumns={2}
           pagingEnabled={true}
+          showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
-          <TouchableOpacity style={styles.touchableContainer2}>
+          <TouchableOpacity style={styles.touchableContainer2} onPress={()=>navigation.navigate("Page",{item})}>
             <Animated.View style={styles.imageContainer2}>
               <Image resizeMode='cover' source={item.image} style={styles.sliderImage2} />
               <Like width={25} height={25} style={styles.like2} />
@@ -217,7 +218,7 @@ export default function Slider() {
             <Text style={styles.mainText2}>
               {item.style} {item.name}
             </Text>
-            <Text style={[styles.mainText2, {fontWeight: '900'}]}>
+            <Text style={styles.mainText2}>
               ${item.price}
             </Text>
           </TouchableOpacity>
@@ -251,12 +252,12 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 12,
     color: '#000',
-    fontWeight: 'bold',
+    fontFamily: 'Gorditas-Bold',
   },
   selectedButtontext: {
     fontSize: 12,
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: "Gorditas-Bold",
   },
   contentContainerStyle: {
     alignItems: 'center',
@@ -284,7 +285,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 16,
     color: '#000',
-    fontWeight: '500',
+    fontFamily: 'Gorditas-Regular',
     textAlign: 'center',
     marginTop: 5,
   },
@@ -299,6 +300,7 @@ const styles = StyleSheet.create({
     width: width / 2,
     paddingHorizontal: 15,
     marginVertical: 20,
+    alignItems: 'flex-start',
   },
   imageContainer2: {
     width: '100%',
@@ -316,9 +318,9 @@ const styles = StyleSheet.create({
     right: 15,
   },
   mainText2: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#000',
-    fontWeight: '500',
+    fontFamily: 'Gorditas-Regular',
     textAlign: 'center',
     marginTop: 5,
   },

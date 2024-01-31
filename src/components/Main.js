@@ -19,7 +19,7 @@ export default function Main({navigation}) {
           <TouchableOpacity>
           <SearchIcon width={25} height={25} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate('Cart')}>
           <Bag width={25} height={25} marginLeft={15} />
           </TouchableOpacity> 
         </View>
@@ -31,7 +31,7 @@ export default function Main({navigation}) {
         <Image style={styles.orangeImage} source={require('../assets/icons/orange_thread.png')}/>
       </View>
       <View>
-        <Slider />
+        <Slider navigation={navigation} />
       </View>
     </SafeAreaView>
   )
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
   styleText: {
     fontSize: 24,
     color: '#000',
-    fontWeight: "600",
+    fontFamily: 'Gorditas-Bold',
+    // fontFamily: 'Gorditas-Regular',
   },
   orangeImage: {
     marginLeft: 100,
