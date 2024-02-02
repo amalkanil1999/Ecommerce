@@ -20,7 +20,7 @@ export default function Page({ route, navigation }) {
   
   const cartedItem = async () => {
     const product = {
-      id: `${item.id + size + color}`,
+      id: `${item.id + size }`,
       style: item.style,
       name: item.name,
       image: item.image,
@@ -41,11 +41,9 @@ export default function Page({ route, navigation }) {
         existingItem.finalPrice = (existingItem.quantity * existingItem.price).toFixed(2)
 
         await AsyncStorage.setItem('items', JSON.stringify(itemsArray))
-        console.log(await AsyncStorage.getItem('items'));
         navigation.navigate('Cart')
       } else {
         await AsyncStorage.setItem('items', JSON.stringify([...itemsArray, product]))
-        console.log(await AsyncStorage.getItem('items'));
         navigation.navigate('Cart')
       }
     } catch (error) {

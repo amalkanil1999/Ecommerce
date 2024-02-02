@@ -1,9 +1,18 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Rightarrow from '../assets/icons/RightArrow.svg'
 import Carousel from './screen/Carousel'
 
-export default function SignUp({navigation}) {
+export default function SignUp({ navigation }) {
+  const clearAllItems = async () => {
+    try {
+      await AsyncStorage.clear();
+      console.log('AsyncStorage cleared successfully.');
+    } catch (error) {
+      console.error('Error clearing AsyncStorage:', error);
+    }
+  };
   return (
     <SafeAreaView style={{flex:1,}}>
       <Carousel />
@@ -22,6 +31,7 @@ export default function SignUp({navigation}) {
             <Text style={{color:'#fff',marginRight:20, fontFamily: 'Gorditas-Bold',}}>Sign Up</Text>
             <Rightarrow style={{transform: [{scaleX: -1}]}} />
           </TouchableOpacity>
+          {/* <TouchableOpacity onPress={clearAllItems}><Text>clear storage</Text></TouchableOpacity> */}
         </View>
         
       </View>

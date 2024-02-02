@@ -110,7 +110,8 @@ export default function Slider({navigation}) {
         return '';
     }
   };
-  const renderItems = ({item, index}) => {
+  const renderItems = ({ item, index }) => {
+   
     return (
       <TouchableOpacity style={styles.touchableContainer} onPress={()=>navigation.navigate('Page',{item})}>
         <Animated.View style={styles.imageContainer}>
