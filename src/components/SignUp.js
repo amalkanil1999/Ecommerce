@@ -5,14 +5,17 @@ import Rightarrow from '../assets/icons/RightArrow.svg'
 import Carousel from './screen/Carousel'
 
 export default function SignUp({ navigation }) {
-  const clearAllItems = async () => {
-    try {
-      await AsyncStorage.clear();
-      console.log('AsyncStorage cleared successfully.');
-    } catch (error) {
-      console.error('Error clearing AsyncStorage:', error);
-    }
-  };
+
+  // function to clear storage
+  // const clearAllItems = async () => {
+  //   try {
+  //     await AsyncStorage.clear();
+  //     console.log('AsyncStorage cleared successfully.');
+  //   } catch (error) {
+  //     console.error('Error clearing AsyncStorage:', error);
+  //   }
+  // };
+  
   return (
     <SafeAreaView style={{flex:1,backgroundColor: '#fff'}}>
       <Carousel />
@@ -31,7 +34,7 @@ export default function SignUp({ navigation }) {
             <Text style={{color:'#fff',marginRight:20, fontFamily: 'Gorditas-Bold',}}>Sign Up</Text>
             <Rightarrow style={{transform: [{scaleX: -1}]}} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={clearAllItems}><Text>clear storage</Text></TouchableOpacity>
+          {/* <TouchableOpacity onPress={clearAllItems}><Text>clear storage</Text></TouchableOpacity> */}
         </View>
         
       </View>
