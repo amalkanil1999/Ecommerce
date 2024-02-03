@@ -70,7 +70,7 @@ const Cart = ({navigation}) => {
         let totalAmount = Number(amount.toFixed(2))
         setSubTotal(totalAmount)
         
-        let updatedTotalAmount = Number(((cartedItems.length > 0  ? 0 : 20.9) + totalAmount).toFixed(2))
+        let updatedTotalAmount = Number(((itemsArray.length === 0 ? 0 :20.9 ) + totalAmount).toFixed(2))
         setTotalPrice(updatedTotalAmount)
     }
     const renderEmptyCart = () => (
@@ -160,7 +160,7 @@ const Cart = ({navigation}) => {
                       <Text style={styles.subTotalText}>Total</Text>
                       <Text style={styles.dollarText}>$ {totalPrice}</Text>
                   </View>
-                  <TouchableOpacity style={styles.checkoutButton}>
+                  <TouchableOpacity onPress={()=> navigation.navigate('Payment')} style={styles.checkoutButton}>
                       <Text style={styles.checkoutText}>Checkout</Text>
                   </TouchableOpacity>
               </View>
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
         width,
         paddingVertical: 20,
         paddingHorizontal: 20,
+        backgroundColor: '#fff',
     },
     header: {
         flexDirection: 'row',

@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 10,
     paddingHorizontal: 20,
+    backgroundColor: '#fff'
   },
   header: {
     flexDirection: 'row',

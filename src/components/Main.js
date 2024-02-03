@@ -8,7 +8,7 @@ import Slider from './screen/Slider'
 
 export default function Main({navigation}) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: '#fff'}}>
       <View style={styles.header}>
         <View>
           <TouchableOpacity>

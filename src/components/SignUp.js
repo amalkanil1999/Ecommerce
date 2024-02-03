@@ -14,7 +14,7 @@ export default function SignUp({ navigation }) {
     }
   };
   return (
-    <SafeAreaView style={{flex:1,}}>
+    <SafeAreaView style={{flex:1,backgroundColor: '#fff'}}>
       <Carousel />
       <View style={styles.bottomContainer}>
         <View style={styles.leftContainer}>
@@ -31,7 +31,7 @@ export default function SignUp({ navigation }) {
             <Text style={{color:'#fff',marginRight:20, fontFamily: 'Gorditas-Bold',}}>Sign Up</Text>
             <Rightarrow style={{transform: [{scaleX: -1}]}} />
           </TouchableOpacity>
-          {/* <TouchableOpacity onPress={clearAllItems}><Text>clear storage</Text></TouchableOpacity> */}
+          <TouchableOpacity onPress={clearAllItems}><Text>clear storage</Text></TouchableOpacity>
         </View>
         
       </View>
